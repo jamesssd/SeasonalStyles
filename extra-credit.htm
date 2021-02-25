@@ -76,7 +76,7 @@
 			<label for="dateField">
 				Input Date:<input type="text" name="dateField" id="dateField" />
 			</label>
-				<input type="submit" value="submit" />
+				<input type="submit" value="submit" onclick= season(); />
 			</form>
 		 </p>
 		 <p>
@@ -111,15 +111,61 @@
 			var formDate = new Date(datetext);//create a date from form input
 			var today = new Date();
 			
-			if(formDate > today)
-			{
-				alert(datetext + " is in the future!");
+			// if(formDate > today)
+			// {
+			// 	alert(datetext + " is in the future!");
+			// }else{
+			// 	alert(datetext + " is in the past!");
+			// }
+					function  newDate(){
+			let date = new Date();
+			let hour = date.getHours();
+			let minute = date.getMinutes();
+			let nameMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+			let month =  nameMonth[date.getMonth()];
+			let numberDay = date.getUTCDate();
+
+			document.getElementById('showDate').innerHTML = month + " " + numberDay + ", " + hour + ":" + minute;
+		}       
+
+		function timeGreeting(){
+			let date = new Date();
+			let say;
+			let hours = date.getHours();
+			let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+			let day = weekday[date.getDay()];
+
+			if(hours >= 5 && hours < 12){
+				say = "Good Morning! ";
+				document.body.style.backgroundColor = "yellow";
+				img.src = 'Images/morning.jpg';
+				
+			}else if(hours >=12 && hours < 18){
+				say = "Good Afternoon! ";
+				document.body.style.backgroundColor = "red";
+				img.src = 'Images/afternoon.jpg';
+
+			}else if(hours >= 18 && hours < 23){
+				say = "Good Evening! "
+				document.body.style.backgroundColor = "orange";
+				img.src = 'Images/eve.jpg';
 			}else{
-				alert(datetext + " is in the past!");
+				say = "Good Night! ";
+				document.body.style.backgroundColor = "blue";
+				img.src = 'Images/night.jpg';
 			}
-		});
+
+			document.getElementById("sayGreeting").innerHTML = say + "It's " + day + "!";
+		}   
+				});
 	});
-    </script>
+	</script>
+	<script src="script2.js"></script>
 	
 </body>
 </html>
+
+About me 
+Who are your
+What makes 
+Road to year Up
